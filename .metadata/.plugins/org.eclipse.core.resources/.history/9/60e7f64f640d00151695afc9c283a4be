@@ -1,0 +1,48 @@
+package application;
+
+import com.google.api.GoogleAPI;
+import com.google.api.translate.Language;
+import com.google.api.translate.Translate;
+
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import file.FileManager;
+
+public class ProcessingApplication extends ShowFileApplication {
+	
+	Stage primaryStage;
+    FileManager fileManager;
+    ProgressBar progressBar;
+    private static final String GOOGLE_KEY_API = "AIzaSyBlhPYTIMKkLQeAeoNzVoMGLLLaftkQGUY";
+
+	public ProcessingApplication(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+		this.primaryStage = primaryStage;
+		this.fileManager = fileManager;
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		super.showRootLayout(primaryStage, "processing.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+
+		progressBar = (ProgressBar) rootLayout.lookup("#progress_bar_task");
+
+		progressBar.setProgress(30);
+		try {
+			GoogleAPI.setHttpReferrer("http://translate.google.com/");
+			// Set the Google Translate API key
+			GoogleAPI.setKey(GOOGLE_KEY_API);
+
+			String textToTranslate = fileOutPut.getText();
+			String translatedText = Translate.DEFAULT.execute(textToTranslate, Language.PORTUGUESE, languadeToTranslate);
+
+			System.out.println(translatedText);
+		} catch (Exception e) {
+
+		}
+	}
+
+}

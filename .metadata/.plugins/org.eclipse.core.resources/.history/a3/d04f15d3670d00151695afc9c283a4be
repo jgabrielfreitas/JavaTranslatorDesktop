@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane minHeight="550.0" minWidth="650.0" prefHeight="550.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <TextArea layoutX="14.0" layoutY="75.0" minWidth="300.0" prefHeight="419.0" prefWidth="300.0" AnchorPane.leftAnchor="14.0" />
+      <TextArea layoutX="338.0" layoutY="75.0" minWidth="300.0" prefHeight="419.0" prefWidth="300.0" AnchorPane.rightAnchor="14.0" />
+      <Separator layoutX="323.0" layoutY="75.0" orientation="VERTICAL" prefHeight="419.0" prefWidth="5.0" />
+      <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original" AnchorPane.bottomAnchor="485.0" />
+      <Text layoutX="336.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Traduzido" AnchorPane.bottomAnchor="485.0" />
+      <Button layoutX="574.0" layoutY="511.0" mnemonicParsing="false" text="Salvar traduçao" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+   </children>
+</AnchorPane>

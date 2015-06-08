@@ -1,0 +1,16 @@
+package application;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class ShowStudent extends Application {
+	
+	//details_student_text
+
+	public void start(Stage primaryStage) throws Exception {
+		
+	}
+	
+	
+
+}

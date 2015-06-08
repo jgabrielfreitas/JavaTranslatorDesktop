@@ -1,0 +1,27 @@
+package application;
+
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import file.FileManager;
+
+public class ProcessingApplication extends ShowFileApplication {
+	
+	Stage primaryStage;
+    FileManager fileManager;
+    ProgressBar progressBar;
+
+	public ProcessingApplication(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+		this.primaryStage = primaryStage;
+		this.fileManager = fileManager;
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		super.showRootLayout(primaryStage, "processing.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+	}
+
+}

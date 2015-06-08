@@ -1,0 +1,42 @@
+package application;
+
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import com.google.api.translate.Language;
+
+import file.FileManager;
+
+public class SaveTranslatedFileApplication extends ProcessingApplication {
+
+	Stage primaryStage;
+	FileManager fileManager;
+	String textToTranslate;
+	TextArea originalTextArea;
+	TextArea translatedTextArea;
+	
+	public SaveTranslatedFileApplication(Stage primaryStage, FileManager fileManager, String textToTranslate) {
+		this.fileManager = fileManager;
+		this.primaryStage = primaryStage;
+		this.textToTranslate = textToTranslate;
+	}
+	
+	public SaveTranslatedFileApplication(Stage primaryStage,
+			FileManager fileManager, String textToTranslate,
+			Language languageToTranslate) {
+		super(primaryStage, fileManager, textToTranslate, languageToTranslate);
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		super.showRootLayout(primaryStage, "save_translated_file.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+		
+		originalTextArea   = (TextArea) rootLayout.lookup("#original_edit_text");
+		translatedTextArea = (TextArea) rootLayout.lookup("#translated_edit_text");
+		
+	}
+
+}

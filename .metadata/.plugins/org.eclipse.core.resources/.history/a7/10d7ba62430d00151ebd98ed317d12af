@@ -1,0 +1,22 @@
+package application;
+
+import file.FileManager;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class LanguageSelector extends ShowFileApplication {
+
+	public LanguageSelector(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+		// TODO Auto-generated constructor stub
+	}
+
+	protected Stage primaryStage;
+    private AnchorPane rootLayout;
+	
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		showRootLayout(primaryStage,"mainapplication.fxml");
+	}
+
+}

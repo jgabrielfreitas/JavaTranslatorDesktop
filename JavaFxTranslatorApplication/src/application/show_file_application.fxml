@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="460.0" minWidth="600.0" prefHeight="460.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="translate_button" disable="true" layoutX="583.0" layoutY="429.0" mnemonicParsing="false" text="Traduzir" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button id="save_button" layoutX="505.0" layoutY="429.0" mnemonicParsing="false" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="100.0" />
+      <TextArea id="file_output_edit_text" layoutX="2.0" layoutY="80.0" prefHeight="307.0" prefWidth="631.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seu arquivo:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Text id="edit_text" layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caso queira editar seu arquivo, basta escrever ou apagar o que desejar e em seguida aperte o botao &quot;Salvar&quot;." />
+      <Button id="language_button" layoutX="14.0" layoutY="429.0" mnemonicParsing="false" text="Idiomas" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+   </children>
+</AnchorPane>

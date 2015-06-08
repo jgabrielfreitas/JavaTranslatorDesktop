@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="201.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o idioma:" />
+		<Separator layoutY="28.0" prefHeight="2.0" prefWidth="270.0" AnchorPane.topAnchor="35.0" />
+		<RadioButton id="radio_portugues" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" selected="true" text="Português">
+			<toggleGroup>
+				<ToggleGroup fx:id="radioGroup" />
+			</toggleGroup>
+		</RadioButton>
+		<RadioButton id="radio_ingles" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" selected="true" text="Inglês" toggleGroup="$radioGroup" />
+		<RadioButton id="radio_espanhol" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" text="Espanhol" toggleGroup="$radioGroup" />
+		<RadioButton id="radio_russo" layoutX="14.0" layoutY="132.0" mnemonicParsing="false" text="Russo" toggleGroup="$radioGroup" />
+      <Button id="close_selector" layoutX="-1.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="270.0" text="Fechar" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+	</children>
+</AnchorPane>

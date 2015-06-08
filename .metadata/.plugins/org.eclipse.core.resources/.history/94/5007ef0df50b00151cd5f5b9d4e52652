@@ -1,0 +1,42 @@
+package application;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class HelloWorld extends Application{
+	
+	Text helloWorld;
+
+	public void start(Stage primaryStage) throws Exception {
+		
+		
+        Button text = new Button("Hello World!");
+        
+        text.setOnAction(e->{
+            Alert dialogoInfo = new Alert(Alert.AlertType.WARNING);
+            dialogoInfo.setTitle("Atenção!");
+            dialogoInfo.setHeaderText("Cabeçalho aqui");
+            dialogoInfo.setContentText("Alerta!!");
+            dialogoInfo.setResizable(false);
+            dialogoInfo.showAndWait();
+
+        });
+
+        VBox raiz = new VBox(20);
+        raiz.setAlignment(Pos.CENTER);
+        raiz.getChildren().addAll(text);
+ 
+        Scene cena = new Scene(raiz, 400, 400);
+        primaryStage.setTitle("Diálogos de erro e informação");
+        primaryStage.setScene(cena);
+        primaryStage.show();
+
+	}
+
+}

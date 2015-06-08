@@ -1,0 +1,107 @@
+package file;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+import org.apache.commons.io.FilenameUtils;
+
+import exceptions.ExtensionNotSupportedException;
+import javafx.scene.control.Alert;
+
+public class FileManager {
+	
+	File file;
+	FileReader fileReader;
+
+	public FileManager(String filePath) {
+		file = new File(filePath);
+	}
+	
+	public File getFile(){
+		return file;
+	}
+
+	@SuppressWarnings("resource")
+	public String loadFileByPath() {
+
+		String fileAsString = null;
+
+		try {
+			
+			FileReader fileReader = new FileReader(file);
+			String ext = FilenameUtils.getExtension(file.getPath());
+			
+			if (ext.equals("txt") == false) {
+				throw new ExtensionNotSupportedException();
+			}
+			
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			StringBuilder stringBuilder = new StringBuilder();
+			String currentLine = bufferedReader.readLine();
+
+			while (currentLine != null) {
+				stringBuilder.append(currentLine);
+				stringBuilder.append(System.lineSeparator());
+				currentLine = bufferedReader.readLine();
+			}
+			
+			fileAsString = stringBuilder.toString();
+			bufferedReader.close();
+			
+		} catch (FileNotFoundException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Erro");
+			alert.setHeaderText("Ooops...");
+			alert.setContentText("Arquivo não encontrado, tente novamente.");
+			alert.show();
+			e.printStackTrace();
+		} catch (ExtensionNotSupportedException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Erro");
+			alert.setHeaderText("Ooops...");
+			alert.setContentText("Este arquivo não possui uma extensão suportada.");
+			alert.show();
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return fileAsString;
+	}
+
+	public boolean saveEditedFile(String toSave) {
+		
+		boolean success = false;
+
+		try {
+
+            BufferedWriter bufwriter = new BufferedWriter(new FileWriter(file)); // new buffer writer passing the current file to edit
+            bufwriter.write(toSave);//writes the edited string buffer to the new file
+            bufwriter.close();//closes the file
+            success = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return success;
+
+	}
+
+	public void createFile(String textToSave) {
+		try {
+			
+			String fileName = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf(File.separator), file.getAbsolutePath().length()).replace(".txt", "");
+			
+			PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+			writer.println(textToSave);
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

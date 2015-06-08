@@ -1,0 +1,55 @@
+package application;
+
+import file.FileManager;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class LanguageSelector extends ShowFileApplication {
+
+	protected Stage primaryStage;
+	private AnchorPane rootLayout;
+	ToggleGroup toggleGroup;
+	
+	public LanguageSelector(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		showRootLayout(primaryStage, "language_selector.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+		
+		toggleGroup = new ToggleGroup();
+		
+		RadioButton today = (RadioButton) rootLayout.lookup("#radio_portugues");
+	    today.setToggleGroup(toggleGroup);
+	    
+	    RadioButton yesterday = (RadioButton) rootLayout.lookup("#radio_portugues");
+	    yesterday.setToggleGroup(toggleGroup);
+	    
+	    RadioButton duration = new RadioButton("duration");
+	    duration.setToggleGroup(toggleGroup);
+
+	    group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+	        @Override
+	        public void changed(ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) {
+
+	            RadioButton chk = (RadioButton)t1.getToggleGroup().getSelectedToggle(); // Cast object to radio button
+	            System.out.println("Selected Radio Button - "+chk.getText());
+
+	        }
+	    });
+		
+	}
+}

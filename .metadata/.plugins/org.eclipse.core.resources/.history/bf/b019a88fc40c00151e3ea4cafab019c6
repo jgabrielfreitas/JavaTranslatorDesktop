@@ -1,0 +1,98 @@
+package application;
+
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class MainApplication extends Application{
+	
+	private Stage primaryStage;
+    private AnchorPane rootLayout;
+    TextField filePath;
+    Button loadFile;
+    public static String newline = System.getProperty("line.separator");
+
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Tradutor de arquivos");
+		showRootLayout();
+	}
+
+	private void showRootLayout() {
+		
+		try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApplication.class.getResource("mainapplication.fxml"));
+            rootLayout = (AnchorPane) loader.load();
+            primaryStage.setResizable(false);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            
+            populeViews(rootLayout);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+	}
+	
+	private void populeViews(AnchorPane rootLayout) {
+		
+		loadFile = (Button)    rootLayout.lookup("#load_file_button");
+		filePath = (TextField) rootLayout.lookup("#file_path_edit_text");
+		
+		loadFile.setOnAction(e->{
+				
+			if(filePath.getCharacters().toString().length() <= 3) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Erro");
+				alert.setHeaderText("Ooops...");
+				alert.setContentText("O caminho de arquivo está vazio." + newline +"Por favor, escreva um caminho válido.");
+				alert.show();
+				return;
+			}
+			
+		});
+	}
+
+	public static void main(String[] args) {
+        launch(args);
+    }
+	
+	private void loadFile(String path){
+		
+		BufferedReader br;
+	    try {
+	    	
+	    	br = new BufferedReader(new FileReader(path))
+	        StringBuilder sb = new StringBuilder();
+	        String line = br.readLine();
+
+	        while (line != null) {
+	            sb.append(line);
+	            sb.append(System.lineSeparator());
+	            line = br.readLine();
+	        }
+	        String everything = sb.toString();
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    } finally {
+	        br.close();
+	    }
+		
+	}
+
+}

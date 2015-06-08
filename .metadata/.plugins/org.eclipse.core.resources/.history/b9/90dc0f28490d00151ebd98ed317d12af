@@ -1,0 +1,69 @@
+package application;
+
+import file.FileManager;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class LanguageSelector extends ShowFileApplication {
+
+	protected Stage primaryStage;
+	private AnchorPane rootLayout;
+	
+	public LanguageSelector(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		showRootLayout(primaryStage, "language_selector.fxml");
+	}
+
+	protected void showRootLayout(Stage stage, String xmlName) {
+
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource(xmlName));
+			rootLayout = (AnchorPane) loader.load();
+			stage.setResizable(false);
+
+			Scene scene = new Scene(rootLayout);
+			stage.setScene(scene);
+			stage.show();
+
+			populeViews(rootLayout);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	private void testRadio(){
+		
+		final ToggleGroup group = new ToggleGroup();
+	    RadioButton today = new RadioButton("Today");
+	    today.setToggleGroup(group);
+	    today.setSelected(true);
+	    RadioButton yesterday = new RadioButton("Yesterday");
+	    yesterday.setToggleGroup(group);
+	    RadioButton duration = new RadioButton("duration");
+	    duration.setToggleGroup(group);
+
+	    group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+	        public void changed(ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) {
+
+	            RadioButton chk = (RadioButton)t1.getToggleGroup().getSelectedToggle(); // Cast object to radio button
+	            System.out.println("Selected Radio Button - "+chk.getText());
+
+	        }
+	    });
+	}
+
+}

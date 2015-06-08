@@ -1,0 +1,80 @@
+package application;
+
+import com.google.api.GoogleAPI;
+import com.google.api.translate.Language;
+import com.google.api.translate.Translate;
+
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import file.FileManager;
+
+public class ProcessingApplication extends ShowFileApplication {
+	
+	Stage primaryStage;
+    FileManager fileManager;
+    ProgressBar progressBar;
+    private static final String GOOGLE_KEY_API = "AIzaSyBlhPYTIMKkLQeAeoNzVoMGLLLaftkQGUY";
+    Language languageToTranslate;
+    String textToTranslate;
+    
+    public ProcessingApplication() {
+	}
+
+	public ProcessingApplication(Stage primaryStage, FileManager fileManager, String textToTranslate, Language languageToTranslate) {
+		super(primaryStage, fileManager);
+		this.primaryStage = primaryStage;
+		this.fileManager = fileManager;
+		this.textToTranslate = textToTranslate;
+		this.languageToTranslate = languageToTranslate;
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		super.showRootLayout(primaryStage, "processing.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+
+		progressBar = (ProgressBar) rootLayout.lookup("#progress_bar_task");
+
+		progressBar.setProgress(30);
+		
+		new Thread() {
+			public void run() {
+				try {
+
+					GoogleAPI.setHttpReferrer("http://translate.google.com/");
+					// Set the Google Translate API key
+					GoogleAPI.setKey(GOOGLE_KEY_API);
+
+					String translatedText = Translate.DEFAULT.execute(textToTranslate, Language.PORTUGUESE,languadeToTranslate);
+
+					System.out.println(translatedText);
+					progressBar.setProgress(100);
+
+					Platform.runLater(new Runnable() {
+						
+						public void run() {
+							
+							SaveTranslatedFileApplication saveTranslated = new SaveTranslatedFileApplication(new Stage(), fileManager, translatedText);
+							saveTranslated.start(new Stage());
+							primaryStage.close();
+						}
+					});
+
+				} catch (Exception e) {
+					Alert alert = new Alert(Alert.AlertType.ERROR);
+					alert.setTitle("Erro");
+					alert.setHeaderText("Ooops...");
+					alert.setContentText("Desculpe, ocorreu um erro inesperado.");
+					alert.show();
+					e.printStackTrace();
+					primaryStage.close();
+				}
+			};
+		}.start();
+	}
+
+}

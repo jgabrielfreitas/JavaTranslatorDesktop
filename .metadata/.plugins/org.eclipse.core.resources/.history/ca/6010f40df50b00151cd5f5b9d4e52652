@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text id="id_hello_world_text" layoutX="-139.0" layoutY="-418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello World!">
+         <font>
+            <Font name="Droid Sans" size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

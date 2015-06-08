@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="700.0" maxWidth="700.0" minHeight="185.0" minWidth="280.0" prefHeight="185.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo ao tradutor de TXT" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <TextField id="file_path_edit_text" layoutX="20.0" layoutY="83.0" prefHeight="25.0" prefWidth="329.0" promptText="Digite o caminho aqui" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="90.0" />
+      <Text layoutX="21.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para começar, diga onde esta o arquivo txt" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="65.0" />
+      <Button id="load_file_button" layoutX="234.0" layoutY="474.0" mnemonicParsing="false" text="Continuar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Text layoutX="20.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1.1" />
+   </children>
+</AnchorPane>

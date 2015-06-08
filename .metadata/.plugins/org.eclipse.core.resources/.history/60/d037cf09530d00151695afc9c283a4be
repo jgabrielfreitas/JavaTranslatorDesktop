@@ -1,0 +1,61 @@
+package application;
+
+import file.FileManager;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class LanguageSelector extends ShowFileApplication {
+
+	protected Stage primaryStage;
+	ToggleGroup toggleGroup;
+	
+	public LanguageSelector(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		showRootLayout(primaryStage, "language_selector.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+		
+		toggleGroup = new ToggleGroup();
+		
+		RadioButton portuguese = (RadioButton) rootLayout.lookup("#radio_portugues");
+	    portuguese.setToggleGroup(toggleGroup);
+	    
+	    RadioButton english = (RadioButton) rootLayout.lookup("#radio_ingles");
+	    english.setToggleGroup(toggleGroup);
+	    
+	    RadioButton spanish = (RadioButton) rootLayout.lookup("#radio_espanhol");
+	    spanish.setToggleGroup(toggleGroup);
+	    
+	    RadioButton russian = (RadioButton) rootLayout.lookup("#radio_russo");
+	    russian.setToggleGroup(toggleGroup);
+	    
+	    Button closeButton = (Button) rootLayout.lookup("#close_selector");
+	    
+	    closeButton.setOnAction(e->{
+	    	
+	    });
+
+		toggleGroup.selectedToggleProperty().addListener(
+				new ChangeListener<Toggle>() {
+					public void changed(ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) {
+
+						RadioButton chk = (RadioButton) t1.getToggleGroup().getSelectedToggle(); // Cast object to radio button
+						System.out.println("Selected Radio Button - " + chk.getText());
+
+					}
+				}
+		);
+		
+	}
+}

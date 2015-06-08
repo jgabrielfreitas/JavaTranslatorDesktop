@@ -1,0 +1,25 @@
+package application;
+
+import javafx.stage.Stage;
+
+import com.google.api.translate.Language;
+
+import file.FileManager;
+
+public class SaveTranslatedFileApplication extends ProcessingApplication {
+
+	public SaveTranslatedFileApplication() {
+		super();
+	}
+	
+	public SaveTranslatedFileApplication(Stage primaryStage,
+			FileManager fileManager, String textToTranslate) {
+	}
+	
+	public SaveTranslatedFileApplication(Stage primaryStage,
+			FileManager fileManager, String textToTranslate,
+			Language languageToTranslate) {
+		super(primaryStage, fileManager, textToTranslate, languageToTranslate);
+	}
+
+}

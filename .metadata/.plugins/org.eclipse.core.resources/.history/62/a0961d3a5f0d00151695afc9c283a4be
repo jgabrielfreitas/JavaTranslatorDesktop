@@ -1,0 +1,20 @@
+package application;
+
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import file.FileManager;
+
+public class ProcessingApplication extends ShowFileApplication {
+
+	public ProcessingApplication(Stage primaryStage, FileManager fileManager) {
+		super(primaryStage, fileManager);
+	}
+	
+	public void start(Stage primaryStage) throws Exception {
+		super.showRootLayout(primaryStage, "processing.fxml");
+	}
+	
+	protected void populeViews(AnchorPane rootLayout) {
+	}
+
+}

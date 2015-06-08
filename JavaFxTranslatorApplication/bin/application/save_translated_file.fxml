@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="550.0" minWidth="750.0" prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea id="original_edit_text" layoutX="14.0" layoutY="75.0" minWidth="300.0" prefHeight="419.0" prefWidth="349.0" AnchorPane.leftAnchor="14.0" />
+      <TextArea id="translated_edit_text" layoutX="338.0" layoutY="75.0" minWidth="300.0" prefHeight="419.0" prefWidth="349.0" AnchorPane.rightAnchor="14.0" />
+      <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original" AnchorPane.bottomAnchor="485.0" />
+      <Text layoutX="387.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Traduzido" AnchorPane.bottomAnchor="485.0" />
+      <Button id="save_button" layoutX="574.0" layoutY="511.0" mnemonicParsing="false" text="Salvar tradução" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Text layoutX="14.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OBS: Seu texto original será mantido." />
+      <Separator layoutX="372.0" layoutY="78.0" orientation="VERTICAL" prefHeight="419.0" prefWidth="5.0" />
+   </children>
+</AnchorPane>

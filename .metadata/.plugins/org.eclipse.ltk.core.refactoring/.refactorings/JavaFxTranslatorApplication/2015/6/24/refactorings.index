@@ -1,0 +1,26 @@
+1433638226760	Move compilation unit
+1433638232456	Delete element
+1433639040151	Delete elements
+1433639045296	Delete element
+1433640174233	Rename type 'Aluno'
+1433645416702	Delete elements
+1433645425510	Delete element
+1433646013202	Rename field 'createStudent'
+1433647639400	Move compilation unit
+1433647754870	Rename local variable 'br'
+1433647767622	Rename local variable 'sb'
+1433648056887	Rename local variable 'line'
+1433648382039	Rename type 'ExtensionNotSupported'
+1433648596914	Rename type 'ShowFileToEditApplication'
+1433697855026	Delete element
+1433707200056	Rename local variable 'today'
+1433707210385	Rename local variable 'yesterday'
+1433707214858	Rename local variable 'portugues'
+1433707223407	Rename local variable 'duration'
+1433711422719	Rename type 'LanguageSelector'
+1433717022455	Delete elements
+1433717184222	Move file
+1433718317671	Rename local variable 'textToTranslate'
+1433718325700	Rename field 'textToTranslate'
+1433721058383	Rename field 'languageToTranslate'
+1433721486450	Rename local variable 'fmt'

@@ -1,0 +1,43 @@
+package com.objects;
+
+public class Aluno {
+
+	private String name;
+	private String register;
+	private int age;
+	public static String newline = System.getProperty("line.separator");
+
+	public Aluno(String name, String register, int age) {
+		this.name = name;
+		this.register = register;
+		this.age = age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRegister() {
+		return register;
+	}
+
+	public void setRegister(String register) {
+		this.register = register;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public String toString() {
+		return String.format("Aluno:", "");
+	}
+}
